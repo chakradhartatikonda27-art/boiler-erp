@@ -11,9 +11,18 @@ import {
 } from 'recharts';
 import { fetchApi } from '@/lib/api';
 
+import DailyEntryModal from '@/components/modals/DailyEntryModal';
+import GrowingChargeCalculatorModal from '@/components/modals/GrowingChargeCalculatorModal';
+import LiftingWeighbridgeModal from '@/components/modals/LiftingWeighbridgeModal';
+
 export default function DashboardPage() {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
+  // Modals state
+  const [isDailyEntryOpen, setIsDailyEntryOpen] = useState(false);
+  const [isGcCalcOpen, setIsGcCalcOpen] = useState(false);
+  const [isWeighbridgeOpen, setIsWeighbridgeOpen] = useState(false);
 
   useEffect(() => {
     fetchApi('/dashboard')
@@ -81,12 +90,23 @@ export default function DashboardPage() {
           <h2 className="text-xl font-bold text-slate-900 tracking-tight">Real-Time Operational Dashboard</h2>
           <p className="text-xs text-slate-500 mt-1">Live monitoring across 2 active farms, 2 active flocks, and current lifting availability.</p>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="px-3.5 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-md text-xs font-semibold flex items-center gap-2 border border-slate-300">
-            <Filter className="w-3.5 h-3.5" />
-            <span>Filter Date</span>
+        <div className="flex flex-wrap items-center gap-2.5">
+          <button 
+            onClick={() => setIsGcCalcOpen(true)}
+            className="px-3.5 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-md text-xs font-semibold flex items-center gap-2 border border-slate-300"
+          >
+            <span>🧮 GC Rule Simulator</span>
           </button>
-          <button className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-semibold shadow-sm transition-colors">
+          <button 
+            onClick={() => setIsWeighbridgeOpen(true)}
+            className="px-3.5 py-1.5 bg-blue-50 text-blue-800 hover:bg-blue-100 rounded-md text-xs font-semibold flex items-center gap-2 border border-blue-200"
+          >
+            <span>⚖️ Weighbridge Entry</span>
+          </button>
+          <button 
+            onClick={() => setIsDailyEntryOpen(true)}
+            className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-semibold shadow-sm transition-colors"
+          >
             + New Daily Entry
           </button>
         </div>
@@ -222,6 +242,21 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      <DailyEntryModal 
+        isOpen={isDailyEntryOpen} 
+        onClose={() => setIsDailyEntryOpen(false)} 
+      />
+      <GrowingChargeCalculatorModal 
+        isOpen={isGcCalcOpen} 
+        onClose={() => setIsGcCalcOpen(false)} 
+      />
+      <LiftingWeighbridgeModal 
+        isOpen={isWeighbridgeOpen} 
+        onClose={() => setIsWeighbridgeOpen(false)} 
+      />
     </div>
   );
 }
+
