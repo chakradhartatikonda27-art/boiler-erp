@@ -1,0 +1,14 @@
+{
+  "name": "broiler-integration-platform-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd apps/web && npm install && npm run build",
+    "dev": "cd apps/web && npm run dev"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
