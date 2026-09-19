@@ -1,0 +1,18 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/(dashboard)/administration/page": "/administration",
+  "/(dashboard)/operations/farmers/page": "/operations/farmers",
+  "/(dashboard)/finance/growing-charges/page": "/finance/growing-charges",
+  "/(dashboard)/inventory/page": "/inventory",
+  "/(dashboard)/dashboard/page": "/dashboard",
+  "/(dashboard)/mobile/page": "/mobile",
+  "/(dashboard)/reports/page": "/reports",
+  "/(dashboard)/finance/expenses/page": "/finance/expenses",
+  "/(dashboard)/procurement/page": "/procurement",
+  "/(dashboard)/operations/flocks/page": "/operations/flocks",
+  "/(dashboard)/sales/lifting/page": "/sales/lifting",
+  "/(dashboard)/operations/daily-reports/page": "/operations/daily-reports",
+  "/(dashboard)/sales/availability/page": "/sales/availability",
+  "/(dashboard)/sales/traders/page": "/sales/traders"
+}
