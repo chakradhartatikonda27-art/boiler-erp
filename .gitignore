@@ -6,6 +6,7 @@ venv/
 .venv/
 
 # Next.js Build
+.next/
 apps/web/.next/
 out/
 build/
